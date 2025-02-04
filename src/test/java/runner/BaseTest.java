@@ -30,6 +30,9 @@ public class BaseTest {
 //		Logger.logInfo("Инициализация драйвера");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--window-size=500,500");
+		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
 //		ChromeOptions options = new ChromeOptions();
 		
 //		options.setCapability("selenoid:options", new HashMap<String, Object>() {{
