@@ -3,6 +3,7 @@ package runner;
 import com.epam.reportportal.listeners.LogLevel;
 import com.epam.reportportal.okhttp3.ReportPortalOkHttp3LoggingInterceptor;
 import com.epam.reportportal.testng.ReportPortalTestNGListener;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import okhttp3.OkHttpClient;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,6 +28,8 @@ public class BaseTest {
 
     @BeforeMethod
 	public void initWebDriver() {
+		WebDriverManager.chromedriver().setup();
+
 //		Logger.logInfo("Инициализация драйвера");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--window-size=500,500");

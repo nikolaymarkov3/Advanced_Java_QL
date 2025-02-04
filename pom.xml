@@ -124,6 +124,11 @@
             <artifactId>logger-java-okhttp3</artifactId>
             <version>5.1.4</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.6.0</version> <!-- Проверьте наличие последней версии -->
+        </dependency>
 
     </dependencies>
 
