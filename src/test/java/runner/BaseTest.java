@@ -1,25 +1,14 @@
 package runner;
 
-import com.epam.reportportal.listeners.LogLevel;
-import com.epam.reportportal.okhttp3.ReportPortalOkHttp3LoggingInterceptor;
-import com.epam.reportportal.testng.ReportPortalTestNGListener;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
-import okhttp3.OkHttpClient;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import utils.Logger;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
-
 
 public class BaseTest {
 	public static WebDriver driver;
@@ -37,8 +26,8 @@ public class BaseTest {
 			Logger.logInfo("WebDriver настроен");
 
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--window-size=500,500");
-//			options.addArguments("--headless"); // Уберите этот параметр для отладки
+//			options.addArguments("--window-size=500,500");
+			options.addArguments("--headless"); // Уберите этот параметр для отладки
 			options.addArguments("--no-sandbox");
 			options.addArguments("--disable-dev-shm-usage");
 
@@ -46,7 +35,7 @@ public class BaseTest {
 			Logger.logInfo("Драйвер инициализирован успешно");
 
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-			driver.manage().window().setSize(new Dimension(200, 100));
+//			driver.manage().window().setSize(new Dimension(200, 100));
 
 			driver.get("https://tt-testing.quality-lab.ru");
 			Logger.logInfo("Открыта страница: https://tt-testing.quality-lab.ru");

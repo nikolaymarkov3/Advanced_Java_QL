@@ -1,6 +1,5 @@
 package test;
 
-import com.epam.reportportal.testng.ReportPortalTestNGListener;
 import io.qameta.allure.Description;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
