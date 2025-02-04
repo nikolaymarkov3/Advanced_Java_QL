@@ -22,14 +22,14 @@ public class BaseTest {
 			System.setProperty("webdriver.chrome.logfile", "chromedriver.log");
 			System.setProperty("webdriver.chrome.verboseLogging", "true");
 
-			WebDriverManager.chromedriver().setup();
+//			WebDriverManager.chromedriver().setup();
 			Logger.logInfo("WebDriver настроен");
 
 			ChromeOptions options = new ChromeOptions();
 //			options.addArguments("--window-size=500,500");
 			options.addArguments("--headless"); // Уберите этот параметр для отладки
-			options.addArguments("--no-sandbox");
-			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--no-sandbox");// Это может помочь в некоторых окружениях
+			options.addArguments("--disable-dev-shm-usage");// Это может помочь с использованием памяти
 
 			driver = new ChromeDriver(options);
 			Logger.logInfo("Драйвер инициализирован успешно");
