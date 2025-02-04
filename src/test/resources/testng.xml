@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="reg" parallel="tests" thread-count="1">
+    <test name="Run">
+        <classes>
+            <class name="test.AuthorisationTest" />
+        </classes>
+    </test>
+<!--    <listeners>-->
+<!--        <listener class-name="io.qameta.allure.testng.AllureTestNg" />-->
+<!--    </listeners>-->
+
+<!--        <listeners>-->
+<!--            <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />-->
+<!--        </listeners>-->
+    </suite>
