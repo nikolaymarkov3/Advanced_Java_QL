@@ -26,60 +26,46 @@ public class BaseTest {
 
 //	public static RemoteWebDriver driver;
 
-    @BeforeMethod
+	@BeforeMethod
 	public void initWebDriver() {
 		WebDriverManager.chromedriver().setup();
 
-//		Logger.logInfo("Инициализация драйвера");
+		Logger.logInfo("Инициализация драйвера");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--window-size=500,500");
 		options.addArguments("--headless");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
-//		ChromeOptions options = new ChromeOptions();
-		
-//		options.setCapability("selenoid:options", new HashMap<String, Object>() {{
-//			/* How to add test badge */
-//			put("name", "Test badge...");
-//
-//			/* How to set session timeout */
-//			put("sessionTimeout", "15m");
-//
-//			/* How to set timezone */
-//			put("env", new ArrayList<String>() {{
-//				add("TZ=UTC");
-//			}});
-//
-//			/* How to add "trash" button */
-//			put("labels", new HashMap<String, Object>() {{
-//				put("manual", "true");
-//			}});
-//
-//			/* How to enable video recording */
-//			put("enableVideo", true);
-//		}});
-//		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-//		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-		
-		// Устанавливаем размер окна
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new ReportPortalOkHttp3LoggingInterceptor(LogLevel.INFO))
-                .build();
+
 		if (driver == null) {
-//			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-			driver = new ChromeDriver(options);
-			Logger.logInfo("Инициализация драйвера");
+			try {
+				driver = new ChromeDriver(options);
+				Logger.logInfo("Драйвер инициализирован успешно");
+			} catch (Exception e) {
+				System.out.printf("Ошибка при инициализации драйвера: " + e.getMessage());
+				throw e; // Пробрасываем исключение дальше
+			}
 		}
-		
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().setSize(new Dimension(200, 100));
-		driver.get("https://tt-testing.quality-lab.ru");
-		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		if(Objects.equals(js.executeScript("return document.readyState"), "complete")) {//проверяем загрузилась ли страница
-			driver.manage().window().maximize();
+
+		try {
+			driver.get("https://tt-testing.quality-lab.ru");
+			Logger.logInfo("Открыта страница: https://tt-testing.quality-lab.ru");
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			if (Objects.equals(js.executeScript("return document.readyState"), "complete")) {
+				driver.manage().window().maximize();
+				Logger.logInfo("Страница загружена и окно развернуто");
+			}
+		} catch (Exception e) {
+			System.out.println("Ошибка при загрузке страницы: " + e.getMessage());
+			throw e; // Пробрасываем исключение дальше
 		}
 	}
-	
+
+
 	@AfterMethod
 	public void tearDown() {
 		if (driver != null) {
