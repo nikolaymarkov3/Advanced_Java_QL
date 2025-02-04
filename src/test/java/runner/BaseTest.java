@@ -20,14 +20,14 @@ import java.util.HashMap;
 import java.util.Objects;
 
 
-public class BaseTest extends ReportPortalTestNGListener {
+public class BaseTest {
 	public static WebDriver driver;
 
 //	public static RemoteWebDriver driver;
 
     @BeforeMethod
 	public void initWebDriver() throws MalformedURLException {
-//		Logger.logInfo("РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РґСЂР°Р№РІРµСЂР°");
+//		Logger.logInfo("Инициализация драйвера");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--window-size=500,500");
 //		ChromeOptions options = new ChromeOptions();
@@ -55,13 +55,13 @@ public class BaseTest extends ReportPortalTestNGListener {
 //		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 //		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 		
-		// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЂР°Р·РјРµСЂ РѕРєРЅР°
+		// Устанавливаем размер окна
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new ReportPortalOkHttp3LoggingInterceptor(LogLevel.INFO))
                 .build();
 		if (driver == null) {
 //			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 			driver = new ChromeDriver(options);
-			Logger.logInfo("РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РґСЂР°Р№РІРµСЂР°");
+			Logger.logInfo("Инициализация драйвера");
 		}
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -69,7 +69,7 @@ public class BaseTest extends ReportPortalTestNGListener {
 		driver.get("https://tt-testing.quality-lab.ru");
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		if(Objects.equals(js.executeScript("return document.readyState"), "complete")) {//РїСЂРѕРІРµСЂСЏРµРј Р·Р°РіСЂСѓР·РёР»Р°СЃСЊ Р»Рё СЃС‚СЂР°РЅРёС†Р°
+		if(Objects.equals(js.executeScript("return document.readyState"), "complete")) {//проверяем загрузилась ли страница
 			driver.manage().window().maximize();
 		}
 	}
