@@ -16,7 +16,7 @@ public class TestListener extends BaseTest implements IInvokedMethodListener, IT
 	@Override
 	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
 		if (testResult.getStatus() == ITestResult.FAILURE) {
-			System.out.println("\n" + ANSI_RED_BACKGROUND + "Òåñò çàâåðøåí íå óñïåøíî " + ANSI_RESET + ANSI_RED
+			System.out.println("\n" + ANSI_RED_BACKGROUND + "Ð¢ÐµÑÑ‚ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½ Ð½Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ " + ANSI_RESET + ANSI_RED
 					                   + "--> [" + ANSI_RESET + method.getTestMethod().getMethodName() + ANSI_RED + "]" + ANSI_RESET);
 			Allure.addAttachment("Screenshot", "image/png", new ByteArrayInputStream(((TakesScreenshot) driver)
 					                                             .getScreenshotAs(OutputType.BYTES)), "png");
@@ -26,7 +26,7 @@ public class TestListener extends BaseTest implements IInvokedMethodListener, IT
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		if (result.getStatus() == ITestResult.SUCCESS) {
-			System.out.println(ANSI_GREEN + "\nÒåñò çàâåðøåí óñïåøíî " + ANSI_RESET + ANSI_GREEN + "--> [" + ANSI_RESET + result.getName() + ANSI_GREEN + "]" + ANSI_RESET);
+			System.out.println(ANSI_GREEN + "\nÐ¢ÐµÑÑ‚ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ " + ANSI_RESET + ANSI_GREEN + "--> [" + ANSI_RESET + result.getName() + ANSI_GREEN + "]" + ANSI_RESET);
 		}
 	}
 }
