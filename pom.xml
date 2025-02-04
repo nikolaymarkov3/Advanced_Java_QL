@@ -127,7 +127,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.6.0</version> <!-- Проверьте наличие последней версии -->
+            <version>5.9.2</version> <!-- Проверьте наличие последней версии -->
         </dependency>
 
     </dependencies>

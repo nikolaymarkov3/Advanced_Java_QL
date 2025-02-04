@@ -24,46 +24,39 @@ import java.util.Objects;
 public class BaseTest {
 	public static WebDriver driver;
 
+
 //	public static RemoteWebDriver driver;
 
 	@BeforeMethod
 	public void initWebDriver() {
-		WebDriverManager.chromedriver().setup();
-
-		Logger.logInfo("Инициализация драйвера");
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--window-size=500,500");
-		options.addArguments("--headless");
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-dev-shm-usage");
-
-		if (driver == null) {
-			try {
-				driver = new ChromeDriver(options);
-				Logger.logInfo("Драйвер инициализирован успешно");
-			} catch (Exception e) {
-				System.out.printf("Ошибка при инициализации драйвера: " + e.getMessage());
-				throw e; // Пробрасываем исключение дальше
-			}
-		}
-
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().window().setSize(new Dimension(200, 100));
-
 		try {
+			System.setProperty("webdriver.chrome.logfile", "chromedriver.log");
+			System.setProperty("webdriver.chrome.verboseLogging", "true");
+
+			WebDriverManager.chromedriver().setup();
+			Logger.logInfo("WebDriver настроен");
+
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--window-size=500,500");
+//			options.addArguments("--headless"); // Уберите этот параметр для отладки
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
+
+			driver = new ChromeDriver(options);
+			Logger.logInfo("Драйвер инициализирован успешно");
+
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+			driver.manage().window().setSize(new Dimension(200, 100));
+
 			driver.get("https://tt-testing.quality-lab.ru");
 			Logger.logInfo("Открыта страница: https://tt-testing.quality-lab.ru");
 
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			if (Objects.equals(js.executeScript("return document.readyState"), "complete")) {
-				driver.manage().window().maximize();
-				Logger.logInfo("Страница загружена и окно развернуто");
-			}
 		} catch (Exception e) {
-			System.out.println("Ошибка при загрузке страницы: " + e.getMessage());
-			throw e; // Пробрасываем исключение дальше
+			System.out.println("Ошибка при инициализации драйвера: " + e.getMessage());
+			e.printStackTrace(); // Вывод стека вызовов для дополнительной информации
 		}
 	}
+
 
 
 	@AfterMethod
