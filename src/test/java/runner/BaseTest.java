@@ -21,9 +21,9 @@ import java.util.Objects;
 
 
 public class BaseTest extends ReportPortalTestNGListener {
-//	public static WebDriver driver;
+	public static WebDriver driver;
 
-	public static RemoteWebDriver driver;
+//	public static RemoteWebDriver driver;
 
     @BeforeMethod
 	public void initWebDriver() throws MalformedURLException {
@@ -59,8 +59,8 @@ public class BaseTest extends ReportPortalTestNGListener {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new ReportPortalOkHttp3LoggingInterceptor(LogLevel.INFO))
                 .build();
 		if (driver == null) {
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-//			driver = new ChromeDriver(options);
+//			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+			driver = new ChromeDriver(options);
 			Logger.logInfo("Инициализация драйвера");
 		}
 		
