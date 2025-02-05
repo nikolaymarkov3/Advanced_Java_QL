@@ -13,10 +13,17 @@ import java.util.Objects;
 
 @Getter
 public class CalendarPage extends BasePage{
+//    public CalendarPage(WebDriver driver) {
+//        super(driver);
+//    }
+
+    private final WebDriver driver;
+
     public CalendarPage(WebDriver driver) {
         super(driver);
+        this.driver = driver;
     }
-    
+
     @FindBy(xpath = "//*[@href='/calendar/']")
     private WebElement openCalendar;
     
