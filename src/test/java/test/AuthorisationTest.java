@@ -39,7 +39,7 @@ public class AuthorisationTest extends BaseTest{
 		}
 	}
 	
-	@Test
+	@Test(groups = "tt")
 	@Description("Проверка авторизации")
 	void testBv() {
 		try {
@@ -51,7 +51,7 @@ public class AuthorisationTest extends BaseTest{
 		}
 	}
 
-	@Test
+	@Test(groups = "tt")
 	@Description("Проверка авторизации")
 	void testBvz() {
 		String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
