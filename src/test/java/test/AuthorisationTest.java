@@ -27,7 +27,7 @@ public class AuthorisationTest extends BaseTest{
 		getInstanceOkhttp().apiAuth();
 	}
 	
-	@Test
+	@Test(groups = "tt")
 	@Description("Проверка авторизации")
 	void testB() {
 		try {
