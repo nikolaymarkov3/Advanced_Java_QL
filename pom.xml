@@ -108,6 +108,7 @@
 
 
     <build>
+        <sourceDirectory>src</sourceDirectory>
         <plugins>
 
             <plugin>
@@ -144,8 +145,23 @@
                 <configuration>
                     <reportVersion>2.12.0</reportVersion>
                 </configuration>
+
+
+            </plugin>
+
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
         </plugins>
+
+
+
     </build>
     <repositories>
         <repository>
