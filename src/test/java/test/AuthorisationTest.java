@@ -30,13 +30,11 @@ public class AuthorisationTest extends BaseTest{
 	@Test(groups = "tt")
 	@Description("Проверка авторизации")
 	void testB() {
-		try {
+
 			String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
 
 			calendarPage.openCalendar(driver);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
 	}
 	
 	@Test(groups = "tt")
