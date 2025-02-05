@@ -27,7 +27,7 @@ public class AuthorisationTest extends BaseTest{
 		getInstanceOkhttp().apiAuth();
 	}
 	
-	@Test
+	@Test(groups = {"AuthorisationTest"})
 	@Description("Проверка авторизации")
 	void testB() {
 		String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
@@ -39,8 +39,8 @@ public class AuthorisationTest extends BaseTest{
 //		assertEquals( actualResult,expectResult);
 		System.out.println("Good ");
 	}
-	
-	@Test
+
+	@Test(groups = {"AuthorisationTest"})
 	@Description("Проверка авторизации")
 	void testBv() {
 		String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
@@ -53,7 +53,7 @@ public class AuthorisationTest extends BaseTest{
 		System.out.println("Good ");
 	}
 
-	@Test
+	@Test(groups = {"AuthorisationTest"})
 	@Description("Проверка авторизации")
 	void testBvz() {
 		String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
