@@ -1,4 +1,4 @@
-package runner;
+package test.java.runner;
 
 import io.qameta.allure.Allure;
 import org.openqa.selenium.OutputType;
@@ -7,7 +7,7 @@ import org.testng.*;
 
 import java.io.ByteArrayInputStream;
 
-public class TestListener extends BaseTest implements IInvokedMethodListener, ITestListener {
+public class TestListener extends runner.BaseTest implements IInvokedMethodListener, ITestListener {
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
 	public static final String ANSI_RED = "\u001B[31m";
