@@ -14,10 +14,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <allure.version>2.27.0</allure.version>
-        <selenium.version>4.28.1</selenium.version>
+        <selenium.version>4.27.0</selenium.version>
         <testng.version>7.10.2</testng.version>
         <aspectj.version>1.9.22</aspectj.version>
-        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <projectlombok.version>1.18.32</projectlombok.version>
     </properties>
 
@@ -86,6 +86,11 @@
             <version>${selenium.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>4.27.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${projectlombok.version}</version>
@@ -95,10 +100,29 @@
             <artifactId>log4j-core</artifactId>
             <version>2.24.2</version>
         </dependency>
+
         <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.9.2</version>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>client-java</artifactId>
+            <version>5.2.23</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>agent-java-testng</artifactId>
+            <version>5.4.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>logger-java-log4j</artifactId>
+            <version>5.2.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>logger-java-okhttp3</artifactId>
+            <version>5.1.4</version>
         </dependency>
 
     </dependencies>
@@ -106,7 +130,6 @@
 
 
     <build>
-
         <plugins>
 
             <plugin>
@@ -143,21 +166,8 @@
                 <configuration>
                     <reportVersion>2.12.0</reportVersion>
                 </configuration>
-
-
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <release>17</release>
-                </configuration>
             </plugin>
         </plugins>
-
-
-
     </build>
     <repositories>
         <repository>

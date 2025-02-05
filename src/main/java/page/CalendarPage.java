@@ -16,8 +16,7 @@ public class CalendarPage extends BasePage{
     public CalendarPage(WebDriver driver) {
         super(driver);
     }
-
-
+    
     @FindBy(xpath = "//*[@href='/calendar/']")
     private WebElement openCalendar;
     
