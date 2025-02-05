@@ -1,6 +1,5 @@
 package runner;
 
-
 import io.qameta.allure.Step;
 import okhttp3.*;
 import org.openqa.selenium.Cookie;
