@@ -2,12 +2,10 @@ package test;
 
 import io.qameta.allure.Description;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import page.CalendarPage;
 import page.TodayReportPage;
 import runner.BaseTest;
-import runner.TestListener;
 
 
 import java.io.IOException;

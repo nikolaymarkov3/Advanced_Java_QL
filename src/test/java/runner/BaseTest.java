@@ -1,5 +1,6 @@
 package runner;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,7 +21,7 @@ public class BaseTest {
 			System.setProperty("webdriver.chrome.logfile", "chromedriver.log");
 			System.setProperty("webdriver.chrome.verboseLogging", "true");
 
-//			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().setup();
 			Logger.logInfo("WebDriver настроен");
 
 			ChromeOptions options = new ChromeOptions();
