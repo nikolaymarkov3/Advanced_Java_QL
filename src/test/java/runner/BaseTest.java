@@ -25,7 +25,7 @@ public class BaseTest {
 
 			ChromeOptions options = new ChromeOptions();
 //			options.addArguments("--window-size=500,500");
-			options.addArguments("--headless"); // Уберите этот параметр для отладки
+//			options.addArguments("--headless"); // Уберите этот параметр для отладки
 			options.addArguments("--no-sandbox");// Это может помочь в некоторых окружениях
 			options.addArguments("--disable-dev-shm-usage");// Это может помочь с использованием памяти
 
