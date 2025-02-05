@@ -18,7 +18,7 @@ public class BaseTest {
 	public static WebDriver driver;
 
     @BeforeMethod
-	public void initWebDriver() throws MalformedURLException {
+	public void initWebDriver() {
 
 	try {
 
