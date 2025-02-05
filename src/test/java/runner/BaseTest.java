@@ -19,7 +19,10 @@ public class BaseTest {
 
     @BeforeMethod
 	public void initWebDriver() throws MalformedURLException {
-//		Logger.logInfo("Инициализация драйвера");
+
+	try {
+
+
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--window-size=500,500");
 
@@ -28,15 +31,18 @@ public class BaseTest {
 			driver = new ChromeDriver(options);
 			Logger.logInfo("Инициализация драйвера");
 		}
-		
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().window().setSize(new Dimension(200, 100));
 		driver.get("https://tt-testing.quality-lab.ru");
-		
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		if(Objects.equals(js.executeScript("return document.readyState"), "complete")) {//проверяем загрузилась ли страница
+		if (Objects.equals(js.executeScript("return document.readyState"), "complete")) {//проверяем загрузилась ли страница
 			driver.manage().window().maximize();
 		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
 	}
 	
 	@AfterMethod
