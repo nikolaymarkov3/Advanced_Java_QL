@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <allure.version>2.27.0</allure.version>
-        <selenium.version>4.27.0</selenium.version>
+        <selenium.version>4.28.1</selenium.version>
         <testng.version>7.10.2</testng.version>
         <aspectj.version>1.9.22</aspectj.version>
         <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
