@@ -96,13 +96,6 @@
             <version>2.24.2</version>
         </dependency>
 
-
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.9.2</version> <!-- Проверьте наличие последней версии -->
-        </dependency>
-
     </dependencies>
 
 
@@ -148,7 +141,6 @@
 
 
             </plugin>
-
 
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
