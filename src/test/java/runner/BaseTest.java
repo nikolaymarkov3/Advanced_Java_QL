@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 
-public class BaseTest extends ReportPortalTestNGListener {
+public class BaseTest {
 	public static WebDriver driver;
 
     @BeforeMethod
