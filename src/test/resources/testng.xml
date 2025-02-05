@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="reg" parallel="tests" thread-count="1" verbose="1">
     <test name="reg">
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="AuthorisationTest"/>-->
-<!--            </run>-->
-<!--        </groups>-->
+        <groups>
+            <run>
+                <include name="AuthorisationTest"/>
+            </run>
+        </groups>
 
         <classes>
             <class name="test.AuthorisationTest" />
