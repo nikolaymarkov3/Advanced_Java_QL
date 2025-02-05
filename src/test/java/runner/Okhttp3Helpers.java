@@ -41,7 +41,7 @@ public class Okhttp3Helpers {
         }
         return okhttp3Helpers;
     }
-    @Step("API Р°РІС‚РѕСЂРёР·Р°С†РёСЏ")
+    @Step("API авторизация")
     public void apiAuth() throws IOException {
         CookieManager cookieManager = new CookieManager();
         cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
@@ -61,7 +61,7 @@ public class Okhttp3Helpers {
                 .add("_csrf_token", "")
                 .add("_username", LOGIN)
                 .add("_password", PASSWORD)
-                .add("_submit", "Р’РѕР№С‚Рё")
+                .add("_submit", "Войти")
                 .build();
 
         Request request = new Request.Builder()
@@ -84,6 +84,6 @@ public class Okhttp3Helpers {
                     .addCookie(cookie);
         });
         driver.navigate().refresh();
-        Logger.logInfo("РђРїРё Р°РІС‚РѕСЂРёР·Р°С†РёСЏ");
+        Logger.logInfo("Апи авторизация");
     }
 }
