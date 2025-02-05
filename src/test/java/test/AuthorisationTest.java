@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import page.CalendarPage;
 import page.TodayReportPage;
 import runner.BaseTest;
-import runner.TestListener;
+
 
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import static org.testng.Assert.assertEquals;
 import static runner.Okhttp3Helpers.getInstanceOkhttp;
 
-@Listeners({TestListener.class})
+@Listeners({test.java.runner.TestListener.class})
 public class AuthorisationTest extends BaseTest{
 	CalendarPage calendarPage;
 	TodayReportPage todayReportPage;;
