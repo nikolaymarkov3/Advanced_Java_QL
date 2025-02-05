@@ -100,6 +100,11 @@
             <artifactId>log4j-core</artifactId>
             <version>2.24.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.13.0</version>
+        </dependency>
     </dependencies>
 
 
@@ -140,6 +145,16 @@
                 <version>2.12.0</version>
                 <configuration>
                     <reportVersion>2.12.0</reportVersion>
+                </configuration>
+
+
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>17</release>
                 </configuration>
             </plugin>
         </plugins>
