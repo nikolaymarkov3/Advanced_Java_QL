@@ -25,6 +25,8 @@ public class BaseTest {
 
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--window-size=500,500");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
 
 
 		if (driver == null) {
