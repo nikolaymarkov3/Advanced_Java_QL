@@ -25,7 +25,8 @@ public class BaseTest {
 
 
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--window-size=500,500");
+		options.addArguments("--headless");
+//		options.addArguments("--window-size=500,500");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 
@@ -35,16 +36,17 @@ public class BaseTest {
 			driver = new ChromeDriver(options);
 			Logger.logInfo("Инициализация драйвера");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+			driver.manage().window().maximize();
 		}
 
 //		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().window().setSize(new Dimension(200, 100));
+//		driver.manage().window().setSize(new Dimension(200, 100));
 		driver.get("https://tt-testing.quality-lab.ru");
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		if (Objects.equals(js.executeScript("return document.readyState"), "complete")) {//проверяем загрузилась ли страница
-			driver.manage().window().maximize();
-		}
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		if (Objects.equals(js.executeScript("return document.readyState"), "complete")) {//проверяем загрузилась ли страница
+//			driver.manage().window().maximize();
+//		}
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
