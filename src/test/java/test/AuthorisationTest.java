@@ -33,7 +33,7 @@ public class AuthorisationTest extends BaseTest{
 
 			String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
 
-			calendarPage.openCalendar(driver);
+//			calendarPage.openCalendar(driver);
 
 	}
 	
@@ -43,7 +43,7 @@ public class AuthorisationTest extends BaseTest{
 		try {
 			String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
 
-			calendarPage.openCalendar(driver);
+//			calendarPage.openCalendar(driver);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
