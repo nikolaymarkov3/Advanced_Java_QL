@@ -36,7 +36,7 @@ public class AuthorisationTest extends BaseTest{
 
 		String actualResult = todayReportPage.clickMode()
 				.meaningModalLabel();
-		assertEquals(expectResult, actualResult);
+		assertEquals(actualResult, expectResult);
 
 	}
 	
@@ -49,7 +49,7 @@ public class AuthorisationTest extends BaseTest{
 
 		String actualResult = todayReportPage.clickMode()
 				.meaningModalLabel();
-		assertEquals(expectResult, actualResult);
+		assertEquals(actualResult, expectResult);
 	}
 
 	@Test(groups = "tt")
@@ -61,7 +61,7 @@ public class AuthorisationTest extends BaseTest{
 
 		String actualResult = todayReportPage.clickMode()
 				.meaningModalLabel();
-		assertEquals(expectResult, actualResult);
+		assertEquals(actualResult, expectResult);
 
 	}
 }
