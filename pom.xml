@@ -17,7 +17,7 @@
         <selenium.version>4.27.0</selenium.version>
         <testng.version>7.10.2</testng.version>
         <aspectj.version>1.9.22</aspectj.version>
-        <maven-surefire-plugin.version>3.13.0</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
         <projectlombok.version>1.18.32</projectlombok.version>
     </properties>
 
@@ -108,24 +108,23 @@
     <build>
         <plugins>
 
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-<!--                    <argLine>-->
-<!--                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
-<!--                    </argLine>-->
-<!--                    <systemPropertyVariables>-->
-<!--                        <property>-->
-<!--                            <name>allure.results.directory</name>-->
-<!--                            <value>${project.build.directory}/allure-results</value>-->
-<!--                        </property>-->
-<!--                    </systemPropertyVariables>-->
-<!--                    <suiteXmlFiles>-->
-<!--                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>-->
-<!--                    </suiteXmlFiles>-->
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <systemPropertyVariables>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemPropertyVariables>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -147,13 +146,13 @@
 
             </plugin>
 
-<!--            <plugin>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>3.8.0</version>-->
-<!--                <configuration>-->
-<!--                    <release>17</release>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>17</release>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <repositories>

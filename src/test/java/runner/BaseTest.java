@@ -20,13 +20,13 @@ public class BaseTest {
 
     @BeforeMethod
 	public void initWebDriver() {
-//		System.setProperty("webdriver.chrome.driver", "N:/DESCTOP/Chromedriver/chromedriver-win64");
-	try {
+
 
 
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 //		options.addArguments("--window-size=500,500");
+		options.addArguments("--log-level=0");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 
@@ -36,7 +36,7 @@ public class BaseTest {
 			driver = new ChromeDriver(options);
 			Logger.logInfo("Инициализация драйвера");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//			driver.manage().window().maximize();
+			driver.manage().window().maximize();
 		}
 
 //		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -47,9 +47,7 @@ public class BaseTest {
 //		if (Objects.equals(js.executeScript("return document.readyState"), "complete")) {//проверяем загрузилась ли страница
 //			driver.manage().window().maximize();
 //		}
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+
 	}
 	
 	@AfterMethod
