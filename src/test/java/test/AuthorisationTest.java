@@ -43,19 +43,25 @@ public class AuthorisationTest extends BaseTest{
 	@Test(groups = "tt")
 	@Description("Проверка авторизации")
 	void testBv() {
-		try {
-			String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
+		String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
+		calendarPage.openCalendar(driver)
+				.moveReportsAndClickTodayReport(driver);
 
-//			calendarPage.openCalendar(driver);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		String actualResult = todayReportPage.clickMode()
+				.meaningModalLabel();
+		assertEquals(expectResult, actualResult);
 	}
 
 	@Test(groups = "tt")
 	@Description("Проверка авторизации")
 	void testBvz() {
 		String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
+		calendarPage.openCalendar(driver)
+				.moveReportsAndClickTodayReport(driver);
+
+		String actualResult = todayReportPage.clickMode()
+				.meaningModalLabel();
+		assertEquals(expectResult, actualResult);
 
 	}
 }
