@@ -13,20 +13,20 @@ public class TestListener extends BaseTest implements IInvokedMethodListener, IT
 	public static final String ANSI_RED = "\u001B[31m";
 	public static final String ANSI_GREEN = "\u001B[32m";
 	
-	@Override
-	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
-		if (testResult.getStatus() == ITestResult.FAILURE) {
-			System.out.println("\n" + ANSI_RED_BACKGROUND + "Тест завершен не успешно " + ANSI_RESET + ANSI_RED
-					                   + "--> [" + ANSI_RESET + method.getTestMethod().getMethodName() + ANSI_RED + "]" + ANSI_RESET);
-			Allure.addAttachment("Screenshot", "image/png", new ByteArrayInputStream(((TakesScreenshot) driver)
-					                                             .getScreenshotAs(OutputType.BYTES)), "png");
-		}
-	}
+//	@Override
+//	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
+//		if (testResult.getStatus() == ITestResult.FAILURE) {
+//			System.out.println("\n" + ANSI_RED_BACKGROUND + "Тест завершен не успешно " + ANSI_RESET + ANSI_RED
+//					                   + "--> [" + ANSI_RESET + method.getTestMethod().getMethodName() + ANSI_RED + "]" + ANSI_RESET);
+//			Allure.addAttachment("Screenshot", "image/png", new ByteArrayInputStream(((TakesScreenshot) driver)
+//					                                             .getScreenshotAs(OutputType.BYTES)), "png");
+//		}
+//	}
 	
-	@Override
-	public void onTestSuccess(ITestResult result) {
-		if (result.getStatus() == ITestResult.SUCCESS) {
-			System.out.println(ANSI_GREEN + "\nТест завершен успешно " + ANSI_RESET + ANSI_GREEN + "--> [" + ANSI_RESET + result.getName() + ANSI_GREEN + "]" + ANSI_RESET);
-		}
-	}
+//	@Override
+//	public void onTestSuccess(ITestResult result) {
+//		if (result.getStatus() == ITestResult.SUCCESS) {
+//			System.out.println(ANSI_GREEN + "\nТест завершен успешно " + ANSI_RESET + ANSI_GREEN + "--> [" + ANSI_RESET + result.getName() + ANSI_GREEN + "]" + ANSI_RESET);
+//		}
+//	}
 }
