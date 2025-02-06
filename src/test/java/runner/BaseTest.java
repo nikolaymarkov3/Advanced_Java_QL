@@ -18,7 +18,7 @@ public class BaseTest {
 	public static WebDriver driver;
 
     @BeforeMethod
-	public void initWebDriver() {
+	public static void initWebDriver() {
 
 	try {
 

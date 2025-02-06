@@ -26,7 +26,7 @@ public class TodayReportPage extends CalendarPage{
 	private WebElement cancelButton;
 	
 	@Step("Выбор настроения в отчете за сегодня")
-	public TodayReportPage clickMode(WebDriver driver) {
+	public TodayReportPage clickMode() {
 		Random random = new Random();
 		int index = random.nextInt(getMoods().size());
 		getMoods().get(index).click();
@@ -35,7 +35,7 @@ public class TodayReportPage extends CalendarPage{
 	}
 	
 	@Step("Значение модального окна")
-	public String meaningModalLabel(WebDriver driver) {
+	public String meaningModalLabel() {
 		String message = getExampleModalLabel().getText();
 		getCancelButton().click();
 		return message;
