@@ -5,21 +5,24 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import utils.Logger;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Objects;
 
 
 public class BaseTest {
-	public static WebDriver driver;
+//	public static WebDriver driver;
+	public static RemoteWebDriver driver;
 
 
     @BeforeMethod
-	public void initWebDriver() {
+	public void initWebDriver() throws MalformedURLException {
 
 
 
@@ -33,7 +36,8 @@ public class BaseTest {
 //		System.setProperty("webdriver.chrome.driver", "N:/DESCTOP/Chromedriver/chromedriver-win64");
 		if (driver == null) {
 //			System.setProperty("webdriver.chrome.driver", "N:/DESCTOP/Chromedriver/chromedriver-win64/chromedriver");
-			driver = new ChromeDriver(options);
+//			driver = new ChromeDriver(options);
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 			Logger.logInfo("Инициализация драйвера");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 			driver.manage().window().maximize();
