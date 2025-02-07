@@ -26,7 +26,7 @@ public class TestListener extends BaseTest implements IInvokedMethodListener, IT
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		if (result.getStatus() == ITestResult.SUCCESS) {
-			System.out.println(ANSI_GREEN + "\nТест завершен успешно " + ANSI_RESET + ANSI_GREEN + "--> [" + ANSI_RESET + result.getName() + ANSI_GREEN + "]" + ANSI_RESET);
+			System.out.println(ANSI_GREEN + "\nТест завершен успешно " + ANSI_RESET + ANSI_GREEN + "--> [" + ANSI_RESET + result.getName() + ANSI_GREEN + "]\n\n" + ANSI_RESET);
 		}
 	}
 }
