@@ -29,7 +29,7 @@ public class BaseTest {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 //		options.addArguments("--window-size=500,500");
-		options.addArguments("--log-level=0");
+		options.addArguments("--log-level=3");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 
@@ -39,7 +39,7 @@ public class BaseTest {
 //			driver = new ChromeDriver(options);
 			driver = new RemoteWebDriver(new URL("http://selenium-hub1:4444/wd/hub"), options);
 			Logger.logInfo("Инициализация драйвера");
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 			driver.manage().window().maximize();
 		}
 
