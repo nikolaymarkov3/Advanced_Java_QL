@@ -39,7 +39,7 @@ public class BaseTest {
 //			driver = new ChromeDriver(options);
 //			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 //			driver = new RemoteWebDriver(new URL("http://selenium-hub1:4444/wd/hub"), options);
-			driver = new RemoteWebDriver(new URL("http://selenoid:4444/wd/hub"), options);
+			driver = new RemoteWebDriver(new URL("http://selenoid_01:4444/wd/hub"), options);
 			Logger.logInfo("Инициализация драйвера");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 			driver.manage().window().maximize();
