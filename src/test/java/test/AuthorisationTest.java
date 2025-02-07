@@ -44,12 +44,12 @@ public class AuthorisationTest extends BaseTest{
 	@Description("Проверка авторизации")
 	void testBv() {
 		String expectResult = "Вы хотите залогировать больше или меньше 5 часов, которые по графику запланированы у вас на сегодня";
-		calendarPage.openCalendar(driver);
-//				.moveReportsAndClickTodayReport(driver);
-//
-//		String actualResult = todayReportPage.clickMode()
-//				.meaningModalLabel();
-//		assertEquals(actualResult, expectResult);
+		calendarPage.openCalendar(driver)
+				.moveReportsAndClickTodayReport(driver);
+
+		String actualResult = todayReportPage.clickMode()
+				.meaningModalLabel();
+		assertEquals(actualResult, expectResult);
 	}
 
 	@Test
