@@ -17,7 +17,7 @@ public class TestListener extends BaseTest implements IInvokedMethodListener, IT
 	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
 		if (testResult.getStatus() == ITestResult.FAILURE) {
 			System.out.println("\n" + ANSI_RED_BACKGROUND + "Тест завершен не успешно " + ANSI_RESET + ANSI_RED
-					                   + "--> [" + ANSI_RESET + method.getTestMethod().getMethodName() + ANSI_RED + "]" + ANSI_RESET);
+					                   + "--> [" + ANSI_RESET + method.getTestMethod().getMethodName() + ANSI_RED + "]\n\n" + ANSI_RESET);
 			Allure.addAttachment("Screenshot", "image/png", new ByteArrayInputStream(((TakesScreenshot) driver)
 					                                             .getScreenshotAs(OutputType.BYTES)), "png");
 		}
