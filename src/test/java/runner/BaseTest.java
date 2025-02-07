@@ -17,8 +17,8 @@ import java.util.Objects;
 
 
 public class BaseTest {
-//	public static WebDriver driver;
-	public static RemoteWebDriver driver;
+	public static WebDriver driver;
+//	public static RemoteWebDriver driver;
 
 
     @BeforeMethod
@@ -36,9 +36,9 @@ public class BaseTest {
 //		System.setProperty("webdriver.chrome.driver", "N:/DESCTOP/Chromedriver/chromedriver-win64");
 		if (driver == null) {
 //			System.setProperty("webdriver.chrome.driver", "N:/DESCTOP/Chromedriver/chromedriver-win64/chromedriver");
-//			driver = new ChromeDriver(options);
+			driver = new ChromeDriver(options);
 //			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-			driver = new RemoteWebDriver(new URL("http://selenium-hub1:4444/wd/hub"), options);
+//			driver = new RemoteWebDriver(new URL("http://selenium-hub1:4444/wd/hub"), options);
 //			driver = new RemoteWebDriver(new URL("http://selenoid:4444"), options);
 			Logger.logInfo("Инициализация драйвера");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
