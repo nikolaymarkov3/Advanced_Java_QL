@@ -1,5 +1,15 @@
 pipeline {
     agent any
+    import jenkins.model.*
+    import hudson.tools.*
+
+    def jdkInstaller = new InstallSourceProperty([new InstallSourceProperty.Sources.JDKInstaller()])
+
+    def jdk = new JDK("JDK_17", "/usr/lib/jvm/java-17-openjdk-amd64", [jdkInstaller])
+    def descriptor = Jenkins.instance.getDescriptorByType(JDK.DescriptorImpl.class)
+    descriptor.addJDK(jdk)
+
+
     tools {
         jdk 'jdk17' // Убедитесь, что это имя совпадает с настройками
         maven 'maven3' // Убедитесь, что это имя совпадает с настройками
