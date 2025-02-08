@@ -15,10 +15,6 @@ descriptor.addJDK(jdk)
 pipeline {
     agent any
 
-
-
-
-
     tools {
 //     def jdkInstaller = new InstallSourceProperty([new InstallSourceProperty.Sources.JDKInstaller()])
 //
