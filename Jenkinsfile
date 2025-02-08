@@ -7,7 +7,7 @@ def mavenHome = "/usr/share/maven" // Укажите путь к установленному Maven
 def mavenName = "Maven_3.8.6" // Укажите имя для Maven
 
 // Получаем дескриптор для Maven
-def descriptor = Jenkins.instance.getDescriptorByType(Maven.DescriptorImpl.class)
+def descriptor1 = Jenkins.instance.getDescriptorByType(Maven.DescriptorImpl.class)
 
 // Проверяем, существует ли уже Maven с таким именем
 def existingMaven = descriptor.getInstallations().find { it.name == mavenName }
