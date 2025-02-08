@@ -15,7 +15,7 @@ descriptor.addJDK(jdk)
 pipeline {
     agent any
 
-    tools {
+//     tools {
 //     def jdkInstaller = new InstallSourceProperty([new InstallSourceProperty.Sources.JDKInstaller()])
 //
 //         def jdk = new JDK("JDK_17", "/usr/lib/jvm/java-17-openjdk-amd64", [jdkInstaller])
@@ -23,7 +23,7 @@ pipeline {
 //     descriptor.addJDK(jdk)
 //         jdk 'jdk17' // Убедитесь, что это имя совпадает с настройками
 //         maven 'maven3' // Убедитесь, что это имя совпадает с настройками
-    }
+//     }
     stages {
         stage('Git Checkout') {
             steps {
