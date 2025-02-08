@@ -10,7 +10,14 @@ def descriptor = Jenkins.instance.getDescriptorByType(JDK.DescriptorImpl.class)
 // Добавляем JDK в Jenkins
 descriptor.addJDK(jdk)
 
+// Создаем новый экземпляр Maven
+def maven = new Maven("Maven_3.8.6", "/usr/share/maven") // Укажите имя и путь к установленному Maven
 
+// Получаем дескриптор для Maven
+def descriptor = Jenkins.instance.getDescriptorByType(Maven.DescriptorImpl.class)
+
+// Добавляем Maven в Jenkins
+descriptor.addMaven(maven)
 
 pipeline {
     agent any
