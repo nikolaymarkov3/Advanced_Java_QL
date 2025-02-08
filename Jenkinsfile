@@ -1,7 +1,7 @@
 import jenkins.model.*
 import hudson.tools.*
 
-/ Создаем новый экземпляр JDK
+// Создаем новый экземпляр JDK
 def jdk = new JDK("JDK_17", "/usr/lib/jvm/java-17-openjdk-amd64")
 
 // Получаем дескриптор для JDK
