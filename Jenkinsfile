@@ -45,6 +45,7 @@ pipeline {
                     }
                 }
             }
+            }
 
 //     tools {
 //     def jdkInstaller = new InstallSourceProperty([new InstallSourceProperty.Sources.JDKInstaller()])
