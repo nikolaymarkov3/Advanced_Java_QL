@@ -35,6 +35,16 @@ descriptor.addJDK(jdk)
 
 pipeline {
     agent any
+    stages {
+            stage('Install Maven') {
+                steps {
+                    script {
+                        // Убедитесь, что Maven установлен через плагин
+                        def mavenHome = tool name: 'Maven_3.8.6', type: 'maven'
+                        env.PATH = "${mavenHome}/bin:${env.PATH}"
+                    }
+                }
+            }
 
 //     tools {
 //     def jdkInstaller = new InstallSourceProperty([new InstallSourceProperty.Sources.JDKInstaller()])
