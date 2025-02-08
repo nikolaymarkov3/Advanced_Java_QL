@@ -10,15 +10,15 @@ def mavenName = "Maven_3.8.6" // Укажите имя для Maven
 def descriptor1 = Jenkins.instance.getDescriptorByType(Maven.DescriptorImpl.class)
 
 // Проверяем, существует ли уже Maven с таким именем
-def existingMaven = descriptor.getInstallations().find { it.name == mavenName }
+def existingMaven = descriptor1.getInstallations().find { it.name == mavenName }
 
 if (!existingMaven) {
     // Создаем новый экземпляр Maven
     def maven = new Maven(mavenName, mavenHome)
 
     // Добавляем Maven в Jenkins
-    descriptor.setInstallations(maven)
-    descriptor.save()
+    descriptor1.setInstallations(maven)
+    descriptor1.save()
     println "Maven ${mavenName} добавлен."
 } else {
     println "Maven ${mavenName} уже существует."
