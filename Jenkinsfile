@@ -35,27 +35,12 @@ descriptor.addJDK(jdk)
 
 pipeline {
     agent any
-    stages {
-            stage('Install Maven') {
-                steps {
-                    script {
-                        // Убедитесь, что Maven установлен через плагин
-                        def mavenHome = tool name: 'Maven_3.8.6', type: 'maven'
-                        env.PATH = "${mavenHome}/bin:${env.PATH}"
-                    }
-                }
-            }
-            }
 
-//     tools {
-//     def jdkInstaller = new InstallSourceProperty([new InstallSourceProperty.Sources.JDKInstaller()])
-//
-//         def jdk = new JDK("JDK_17", "/usr/lib/jvm/java-17-openjdk-amd64", [jdkInstaller])
-//         def descriptor = Jenkins.instance.getDescriptorByType(JDK.DescriptorImpl.class)
-//     descriptor.addJDK(jdk)
-//         jdk 'jdk17' // Убедитесь, что это имя совпадает с настройками
-//         maven 'maven3' // Убедитесь, что это имя совпадает с настройками
-//     }
+    tools {
+        jdk 'JDK_17' // Убедитесь, что это имя совпадает с настройками
+        maven 'Maven_3.8.6' // Убедитесь, что это имя совпадает с настройками
+    }
+
     stages {
         stage('Git Checkout') {
             steps {
