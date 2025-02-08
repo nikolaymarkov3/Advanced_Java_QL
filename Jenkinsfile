@@ -1,5 +1,28 @@
 import jenkins.model.*
 import hudson.tools.*
+import hudson.tasks.Maven
+
+// Создаем новый экземпляр Maven
+def mavenHome = "/usr/share/maven" // Укажите путь к установленному Maven
+def mavenName = "Maven_3.8.6" // Укажите имя для Maven
+
+// Получаем дескриптор для Maven
+def descriptor = Jenkins.instance.getDescriptorByType(Maven.DescriptorImpl.class)
+
+// Проверяем, существует ли уже Maven с таким именем
+def existingMaven = descriptor.getInstallations().find { it.name == mavenName }
+
+if (!existingMaven) {
+    // Создаем новый экземпляр Maven
+    def maven = new Maven(mavenName, mavenHome)
+
+    // Добавляем Maven в Jenkins
+    descriptor.setInstallations(maven)
+    descriptor.save()
+    println "Maven ${mavenName} добавлен."
+} else {
+    println "Maven ${mavenName} уже существует."
+}
 
 // Создаем новый экземпляр JDK
 def jdk = new JDK("JDK_17", "/usr/lib/jvm/java-17-openjdk-amd64")
@@ -9,15 +32,6 @@ def descriptor = Jenkins.instance.getDescriptorByType(JDK.DescriptorImpl.class)
 
 // Добавляем JDK в Jenkins
 descriptor.addJDK(jdk)
-
-// Создаем новый экземпляр Maven
-def maven = new Maven("Maven_3.8.6", "/usr/share/maven") // Укажите имя и путь к установленному Maven
-
-// Получаем дескриптор для Maven
-def descriptor = Jenkins.instance.getDescriptorByType(Maven.DescriptorImpl.class)
-
-// Добавляем Maven в Jenkins
-descriptor.addMaven(maven)
 
 pipeline {
     agent any
