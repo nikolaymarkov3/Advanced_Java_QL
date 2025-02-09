@@ -1,18 +1,81 @@
-pipeline {
-    agent {
-        docker {
-            image 'maven:3.9.0'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
-        }
-        }
+image: maven:latest # Образ, который будет использоваться для запуска тестов
+
+variables:
+  CI_RUN: "true"
+  # MAVEN_OPTS: "-Dmaven.repo.local=./.m2/repository"
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=.m2/repository
+              -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN
+              -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+
+  MAVEN_SETTINGS: "pom.xml"
+  CHROME_DEB_PATH: "./google-chrome-stable_current_amd64.deb"
+
+
+stages:
+  - build
+  - test
+  - package
+  - deploy
+  - notify
+build:
+  stage: build
+  # only:
+  #   - dev
+  #   - merge_requests
+  #   - /^release\/.*$/
+  # except:
+  #   - tags
+  script:
+    - 'mvn --settings $MAVEN_SETTINGS compile' #передает GitLab CI файл c настройками
+  cache:
+    paths:
+      - ./target
+      - ./.m2
+
+
+test:
+  stage: test
+  before_script:
+    - apt update
+    - if [ ! -f "$CHROME_DEB_PATH" ]; then wget -O "$CHROME_DEB_PATH" https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb; fi
+    - dpkg -l | grep google-chrome-stable || { apt install -y "$CHROME_DEB_PATH"; apt-get install -f; }
+    # - curl -fsSL https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -o allurectl
+
+  # only:
+  #   - dev
+  #   - merge_requests
+  #   - /^release\/.*$/
+  # except:
+  #   - tags
+  services:
+    - name: selenium/standalone-chrome  # Образ для запуска тестов с Selenium
+      alias: selenium
+
+  script:
+    - 'mvn --settings $MAVEN_SETTINGS test'
+  cache:
+    paths:
+      - ./target
+      - ./.m2
+
+
+
+
+// pipeline {
+//     agent {
+//         docker {
+//             image 'maven:3.9.0'
+//             args '-v /root/.m2:/root/.m2'
+//         }
+//     }
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 sh 'mvn -B -DskipTests clean package'
+//             }
+//         }
+//     }
+// }
 
 
 
